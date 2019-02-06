@@ -1,9 +1,9 @@
-\documentclass[11pt, twoside]{report}
+\documentclass[11pt,twoside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage[a4paper, width=150mm, top=25mm, bottom=30mm, bindingoffset=20mm]{geometry}
-\usepackage[toc,page]{appendix}
+\usepackage[titletoc, title,header]{appendix}
 \usepackage{pdfpages}
 \usepackage{natbib}
 \usepackage{dirtytalk}
@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \usepackage{helvet}
 \usepackage{hyphenat}
+\usepackage[hidelinks]{hyperref}
 \renewcommand{\familydefault}{\sfdefault}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \pagestyle{fancy}
@@ -29,6 +30,10 @@
 \bibpunct{(}{)}{,}{a}{}{ }
 \graphicspath{ {images/}{appendices/} }
 \footskip = 15mm
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+	{\normalfont\Huge\bfseries}{\thechapter\quad}{0pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
 
 \begin{document}
 
@@ -76,3 +81,4 @@ Final Year Project
 \input{report/appendicies/00-Appendix}
 
 \end{document}
+
