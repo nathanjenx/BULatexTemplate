@@ -1,4 +1,5 @@
 \documentclass[11pt,twoside]{report}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -17,6 +18,7 @@
 \usepackage{helvet}
 \usepackage{hyphenat}
 \usepackage[hidelinks]{hyperref}
+\usepackage[autostyle]{csquotes}
 \renewcommand{\familydefault}{\sfdefault}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \pagestyle{fancy}
@@ -30,10 +32,23 @@
 \bibpunct{(}{)}{,}{a}{}{ }
 \graphicspath{ {images/}{appendices/} }
 \footskip = 15mm
+\usepackage{afterpage}
+
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+
+
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]
 	{\normalfont\Huge\bfseries}{\thechapter\quad}{0pt}{\Huge}
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+
+
 
 \begin{document}
 
@@ -51,16 +66,21 @@ Final Year Project
 \endgroup
 \vspace*{\fill}
 
+\afterpage{\blankpage}
 \input{report/preamble/1-Abstract}
 \input{report/preamble/2-DissertationDeclaration}
 \input{report/preamble/3-WorkDeclaration}
+\afterpage{\blankpage}
 \input{report/preamble/4-Acknowledgements}
 
 \tableofcontents
 
 \listoffigures
 
-\cleardoublepage
+\listoftables
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+
 \pagenumbering{arabic}
 
 \input{report/body/1-Introduction}
@@ -81,4 +101,3 @@ Final Year Project
 \input{report/appendicies/00-Appendix}
 
 \end{document}
-
