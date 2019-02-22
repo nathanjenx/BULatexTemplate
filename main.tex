@@ -19,6 +19,11 @@
 \usepackage{hyphenat}
 \usepackage[hidelinks]{hyperref}
 \usepackage[autostyle]{csquotes}
+\usepackage{soul}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[export]{adjustbox}
+
 \renewcommand{\familydefault}{\sfdefault}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \pagestyle{fancy}
@@ -32,15 +37,8 @@
 \bibpunct{(}{)}{,}{a}{}{ }
 \graphicspath{ {images/}{appendices/} }
 \footskip = 15mm
-\usepackage{afterpage}
 
-\newcommand\blankpage{
-    \null
-    \thispagestyle{empty}
-    \addtocounter{page}{-1}
-    \newpage
-}
-
+\usepackage{emptypage}
 
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]
@@ -48,38 +46,27 @@
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
 
 
-
-
 \begin{document}
+
+\input{report/titles/1-MainTitle}
 
 \pagenumbering{roman}
 
-\vspace*{\fill}
-\begingroup
-\centering
-Faculty of Science \& Technology
+\input{report/titles/2-SubTitle}
 
-Department of Computing and Informatics
 
-Final Year Project
-
-\endgroup
-\vspace*{\fill}
-
-\afterpage{\blankpage}
 \input{report/preamble/1-Abstract}
 \input{report/preamble/2-DissertationDeclaration}
 \input{report/preamble/3-WorkDeclaration}
-\afterpage{\blankpage}
+\cleardoublepage
 \input{report/preamble/4-Acknowledgements}
 
 \tableofcontents
 
 \listoffigures
-
 \listoftables
-\afterpage{\blankpage}
-\afterpage{\blankpage}
+
+\cleardoublepage
 
 \pagenumbering{arabic}
 
